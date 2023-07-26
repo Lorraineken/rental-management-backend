@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'property',
     'unit',
     'tenant',
+    'communication',
 ]
 
 MIDDLEWARE = [
