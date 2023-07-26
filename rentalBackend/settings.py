@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'unit',
     'tenant',
     'communication',
+    'agreement',
 ]
 
 MIDDLEWARE = [
