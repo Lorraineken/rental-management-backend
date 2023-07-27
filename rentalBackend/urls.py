@@ -27,4 +27,5 @@ urlpatterns = [
     path('maintenance/',include('maintenanceRequest.urls')),
     path('property/',include('property.urls')),
     path('tenant/',include('tenant.urls')),
+    path('unit/',include('unit.urls')),
 ]
