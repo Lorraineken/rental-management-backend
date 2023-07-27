@@ -24,4 +24,5 @@ urlpatterns = [
     path('agreement/',include('agreement.urls')),
     path('communication/',include('communication.urls')),
     path('landlord/',include('landlord.urls')),
+    path('maintenance/',include('maintenanceRequest.urls')),
 ]
