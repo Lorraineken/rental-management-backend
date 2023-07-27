@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'maintenanceRequest',
     'payment',
     'report',
+    'corsheaders',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
