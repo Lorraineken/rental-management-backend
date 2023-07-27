@@ -16,15 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-##Added import
-from rest_framework import routers
-from agreement import views
 
-##Setting up router(api)
-router = routers.DefaultRouter()
-router.register(r'agreements',views.AgreementView, 'agreement')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('agreement/',include(router.urls)),
+    path('agreement/',include('agreement.urls')),
+    path('communication/',include('communication.urls'))
 ]
