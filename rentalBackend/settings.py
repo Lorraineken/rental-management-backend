@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Added corsheaders middleware
     'corsheaders.middleware.CorsMiddleware',
 ]
 
@@ -143,3 +144,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+## Frontend  interaction with API
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000'
+]
