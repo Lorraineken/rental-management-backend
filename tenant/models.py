@@ -8,6 +8,10 @@ class Tenant(models.Model):
     id_passport = models.CharField(max_length=50,null=False)
     phone_no = models.IntegerField(null=False)
     email = models.EmailField(max_length=254)
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return (f'{self.first_name} {self.last_name} - {self.phone_no}')
     
 
 

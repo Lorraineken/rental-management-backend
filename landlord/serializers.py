@@ -4,4 +4,4 @@ from .models import Landlord
 class LandlordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Landlord
-        fields = ('id','first_name','last_name','phone','email','company')
+        fields = ('id','first_name','last_name','phone_no','email','company')

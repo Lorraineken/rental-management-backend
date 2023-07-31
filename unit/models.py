@@ -17,3 +17,6 @@ class Unit(models.Model):
         null = True,
         )
     
+    def __str__(self):
+        """String for representing the Model object."""
+        return (f'status:{self.status}-tenant{self.tenant}')
