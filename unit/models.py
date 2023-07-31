@@ -10,7 +10,7 @@ class Unit(models.Model):
     )
     status = models.CharField(max_length=1,choices=STATUS_CHOICES, default='V')
     property = models.ForeignKey(Property, on_delete=models.CASCADE, default = None)
-    tenant = models.ForeignKey(
+    tenant = models.OneToOneField(
         Tenant, 
         models.SET_NULL,
         blank = True,
