@@ -6,8 +6,8 @@ class Agreement(models.Model):
     lease_terms = models.JSONField()
     start_date = models.DateTimeField(null=False)
     end_date = models.DateTimeField(null=False)
-    #landlord = models.ForeignKey(Landlord,on_delete=models.PROTECT)
-    #tenant = models.ForeignKey(Tenant,on_delete=models.DO_NOTHING)
+    landlord = models.ForeignKey(Landlord,on_delete=models.PROTECT, default = None)
+    tenant = models.ForeignKey(Tenant,on_delete=models.DO_NOTHING, default = None)
 
     def __str__(self):
         """String for representing the Model object."""
