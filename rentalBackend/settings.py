@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'report',
     'corsheaders',
     'rest_framework',
+    'psycopg2',
+    #'django_api_admin',
 ]
 
 MIDDLEWARE = [
@@ -94,7 +96,7 @@ WSGI_APPLICATION = 'rentalBackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'rentalsdb',
         'USER': 'kupa',
         'PASSWORD': 'kupa@rent2023',

@@ -8,6 +8,7 @@ class Property(models.Model):
     no_of_units = models.IntegerField(null=False)
     rental_price = models.IntegerField(null=False)
     landlord = models.ForeignKey(Landlord,on_delete=models.SET_NULL, null=True)
+    #Add image
 
     def __str__(self):
         """String for representing the Model object."""
