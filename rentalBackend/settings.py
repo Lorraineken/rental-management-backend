@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'psycopg2',
-    #'django_api_admin',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
