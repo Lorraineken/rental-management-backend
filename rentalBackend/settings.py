@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'psycopg2',
     'rest_framework.authtoken',
-    'authentication',
+    'users',
+    
 ]
 
 MIDDLEWARE = [
