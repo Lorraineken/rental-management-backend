@@ -4,4 +4,4 @@ from .models import Unit
 class UnitSerializer(serializers.ModelSerializer):
     class Meta:
         model = Unit
-        fields = ('status')
+        fields = ('id','status','property','tenant')

@@ -48,6 +48,15 @@ INSTALLED_APPS = [
     'report',
     'corsheaders',
     'rest_framework',
+    'psycopg2',
+    'rest_framework.authtoken',
+    'users',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    
 ]
 
 MIDDLEWARE = [
@@ -94,7 +103,7 @@ WSGI_APPLICATION = 'rentalBackend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'rentalsdb',
         'USER': 'kupa',
         'PASSWORD': 'kupa@rent2023',
@@ -149,3 +158,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+    ],
+}
