@@ -1,8 +1,20 @@
+# from django.db import models
+
+# class Payment(models.Model):
+#     amount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+#     payment_date = models.DateField()
+#     description = models.TextField()
+
+#     def __str__(self):
+#         return f"Payment #{self.pk}: {self.amount} on {self.payment_date}"
+
+
 from django.db import models
 
-# Create your models here.
 class Payment(models.Model):
-    method = models.CharField(max_length=50)
-    rent_paid = models.IntegerField()
-    rent_unpaid = models.IntegerField()
-    #tenant_id
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    payment_date = models.DateField()
+    description = models.TextField()
+
+    def __str__(self):
+        return f"Payment - {self.amount} on {self.payment_date}"

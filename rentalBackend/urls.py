@@ -29,5 +29,9 @@ urlpatterns = [
     path('tenant/',include('tenant.urls')),
     path('unit/',include('unit.urls')),
     path('payment/',include('payment.urls')),
+     path('api/payments/', include('payment.urls')),
+
     path('users/',include('users.urls')),
 ]
+
+
