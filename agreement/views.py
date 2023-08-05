@@ -12,29 +12,42 @@ from rest_framework import generics
 #class AgreementView(viewsets.ModelViewSet):
 #    serializer_class = AgreementSerializer
 #    queryset = Agreement.objects.all()
+# views.py
 
-class AgreementCreate(generics.CreateAPIView):
-    #API endpoint that allows creation of a new Agreement
-    queryset = Agreement.objects.all(),
-    serializer_class = AgreementSerializer 
+class AgreementCreateView(generics.CreateAPIView):
+    serializer_class = AgreementSerializer
 
-class AgreementList(generics.ListAPIView):
-    # API endpoint that allows Agreements to be viewed
+    def perform_create(self, serializer):
+        # Set the landlord_id based on the request data
+        landlord_id = self.request.data.get('landlord_id')
+        serializer.save(landlord_id=landlord_id)
+
+# Agreement List View
+class AgreementListView(generics.ListCreateAPIView):
     queryset = Agreement.objects.all()
     serializer_class = AgreementSerializer
 
-class AgreementDetail(generics.RetrieveAPIView):
-    #API endpoint that returns a single agreement by pk
+# Agreement Detail View
+class AgreementDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Agreement.objects.all()
     serializer_class = AgreementSerializer
 
-class AgreementUpdate(generics.RetrieveUpdateAPIView):
-    #API endpoint that allows updating of agreement record
+# Agreement Create View
+class AgreementCreateView(generics.CreateAPIView):
+    serializer_class = AgreementSerializer
+
+    def perform_create(self, serializer):
+        # Set the landlord_id based on the request data
+        landlord_id = self.request.data.get('landlord_id')
+        serializer.save(landlord_id=landlord_id)
+
+# Agreement Update View
+class AgreementUpdateView(generics.UpdateAPIView):
     queryset = Agreement.objects.all()
     serializer_class = AgreementSerializer
 
-class AgreementDelete(generics.RetrieveDestroyAPIView):
-    #API endpoint that allows an agreement record to be deleted
+# Agreement Delete View
+class AgreementDeleteView(generics.DestroyAPIView):
     queryset = Agreement.objects.all()
     serializer_class = AgreementSerializer
 

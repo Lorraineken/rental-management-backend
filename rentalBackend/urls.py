@@ -21,7 +21,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('agreement/',include('agreement.urls')),
+    path('agreements/', include('agreement.urls')),
     path('communication/',include('communication.urls')),
     path('landlord/',include('landlord.urls')),
     path('maintenance/',include('maintenanceRequest.urls')),
@@ -34,4 +34,10 @@ urlpatterns = [
     path('users/',include('users.urls')),
 ]
 
+from django.urls import path, include
+
+urlpatterns = [
+    # Other URL patterns for the main project go here
+
+]
 

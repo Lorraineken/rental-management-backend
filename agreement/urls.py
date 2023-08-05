@@ -1,19 +1,11 @@
-from django.urls import path, include
-#from rest_framework.routers import DefaultRouter
-#from . import views
-from .views import AgreementCreate,AgreementList,AgreementDetail,AgreementUpdate,AgreementDelete
-
-#router = DefaultRouter()
-#router.register(r'agreements',views.AgreementView)
-
-#urlpatterns = [
-#    path('', include(router.urls)),
-#]
+from django.urls import path
+from .views import AgreementListView, AgreementDetailView, AgreementCreateView, AgreementUpdateView, AgreementDeleteView
 
 urlpatterns = [
-    path('create/',AgreementCreate.as_view(), name ='create-agreement'),
-    path('',AgreementList.as_view()),
-    path('<int:pk>/',AgreementDetail.as_view(), name ='retrieve-agreement'),
-    path('update/<int:pk>', AgreementUpdate.as_view(),name='update-agreement'),
-    path('delete/<int:pk>', AgreementDelete.as_view(), name='delete-agreement')
+    path('agreements/', AgreementListView.as_view(), name='agreement-list'),
+    path('agreements/create/', AgreementCreateView.as_view(), name='agreement-create'),
+    path('agreements/<int:pk>/', AgreementDetailView.as_view(), name='agreement-detail'),
+    path('agreements/<int:pk>/update/', AgreementUpdateView.as_view(), name='agreement-update'),
+    path('agreements/<int:pk>/delete/', AgreementDeleteView.as_view(), name='agreement-delete'),
 ]
+
