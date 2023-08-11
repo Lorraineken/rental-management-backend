@@ -100,17 +100,28 @@ WSGI_APPLICATION = 'rentalBackend.wsgi.application'
  #       'ENGINE': 'django.db.backends.sqlite3',
  #   }
 #}
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'rentalsdb',
-        'USER': 'kupa',
-        'PASSWORD': 'kupa@rent2023',
-        'HOST': 'localhost',
-        'PORT': '',
+        'USER': 'icika',
+        'PASSWORD': 'ken66icika',
+        'HOST': 'localhost',  # Use '127.0.0.1' if 'localhost' doesn't work
+        'PORT': '',       # Default PostgreSQL port
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'rentalsdb',
+#         'USER': 'Icika',
+#         'PASSWORD': 'ken66icika',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 
 # Password validation
