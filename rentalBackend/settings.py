@@ -200,3 +200,11 @@ ACCOUNT_EMAIL_REQUIRED = True
 
 #ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 LOGIN_URL = 'http://localhost:8000/users/login'
+
+## THE MPESA ENVIRONMENT 
+# Possible values: sandbox, production
+
+MPESA_ENVIRONMENT = 'sandbox'
+
+#Credentials for the daraja app
+
