@@ -30,4 +30,5 @@ urlpatterns = [
     path('unit/',include('unit.urls')),
     path('payment/',include('payment.urls')),
     path('users/',include('users.urls')),
+    path('mpesa/',include('mpesa.urls'))
 ]

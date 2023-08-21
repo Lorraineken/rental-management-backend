@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'dj_rest_auth',
     'dj_rest_auth.registration',
     'django_daraja',
+    'mpesa',
     
 ]
 
@@ -216,3 +217,5 @@ MPESA_ENVIRONMENT = 'sandbox'
 
 MPESA_CONSUMER_KEY = config('MPESA_CONSUMER_KEY')
 MPESA_CONSUMER_SECRET = config('MPESA_CONSUMER_SECRET')
+MPESA_PASSKEY = config('MPESA_PASSKEY')
+MPESA_EXPRESS_SHORTCODE = ('MPESA_EXPRESS_SHORTCODE')
