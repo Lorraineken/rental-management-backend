@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+# MPESA IMPORTS
+import os
+from decouple import config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -56,6 +60,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'dj_rest_auth',
     'dj_rest_auth.registration',
+    'django_daraja',
+    'mpesa',
     
 ]
 
@@ -159,8 +165,57 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000'
 ]
 
+# Adding JWT Cookie Authentication
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
     ],
 }
+
+SITE_ID = 1
+
+#set REST_USE_JWT to be TRUE so that JWT authentication will be used by dj-rest-auth
+REST_USE_JWT = True
+
+#Defining the name of the cookie during authentication
+JWT_AUTH_COOKIE = 'my-app-auth'
+
+#AUTHENTICATION_BACKENDS will allow our users to be authenticated
+#upon login and also allows us to login to the Django admin irrespective 
+#of the django-allauth authentication backend
+
+AUTHENTICATION_BACKENDS = [
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# Include email verification 
+# specifying email should be used instead of username
+# spsecified email must be provided by the user in order to register
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+#ACCOUNT_AUTHENTICATION_METHOD = 'password'
+ACCOUNT_EMAIL_REQUIRED = True
+#ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+#The ACCOUNT_CONFIRM_EMAIL_ON_GET is to allow the website to verify 
+# the user when the user opens the link received in the email. 
+# Then, we want the user to be redirected to the LOGIN_URL after verification, 
+# so we specified our LOGIN_URL
+
+#ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+LOGIN_URL = 'http://localhost:8000/users/login'
+
+## THE MPESA ENVIRONMENT 
+# Possible values: sandbox, production
+
+MPESA_ENVIRONMENT = 'sandbox'
+
+#Credentials for the daraja app
+
+
+MPESA_CONSUMER_KEY = config('MPESA_CONSUMER_KEY')
+MPESA_CONSUMER_SECRET = config('MPESA_CONSUMER_SECRET')
+MPESA_PASSKEY = config('MPESA_PASSKEY')
+MPESA_EXPRESS_SHORTCODE = ('MPESA_EXPRESS_SHORTCODE')
